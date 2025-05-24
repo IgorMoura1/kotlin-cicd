@@ -1,5 +1,5 @@
 FROM maven:3-amazoncorretto-21 as builder
-LABEL author="Igor Moura"
+LABEL author="igormoura1"
 
 WORKDIR /build
 
