@@ -71,7 +71,6 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-cicd:latest
 
     name: Deployment
-
     on:
       push:
         branches: [ main ]
@@ -81,10 +80,10 @@ jobs:
         runs-on: self-hosted
         steps:
           - name: Pull na Docker image
-            run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/ci-cd24052025:latest
+            run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-cicd:latest
 
           - name: Remove no Container
-            run: docker rm -f ci-cd24052025 || true
+            run: docker rm -f kotlin-cicd || true
 
           - name: Rodando container
-            run: docker run --name ci-cd24052025 -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-cicd:latest
+            run: docker run --name kotlin-cicd -d -p 8080:8080 ${{ secrets.DOCKERHUB_USERNAME }}/kotlin-cicd:latest
